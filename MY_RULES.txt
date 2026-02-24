@@ -34,11 +34,6 @@
 ! DuckDuckGo
 ||duckduckgo.com^$dnsrewrite=safe.duckduckgo.com
 
-! --- BLOCK DNS-OVER-HTTPS (DO NOT BYPASS) ---
-||dns.google^
-||dns.cloudflare.com^
-||doh.opendns.com^
-||dns.quad9.net^
 
 
 ! --- BRAVE SEARCH SAFESEARCH ---
