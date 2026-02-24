@@ -1,8 +1,9 @@
 name: Update Master List
 on:
+  push:          # <--- Add this temporarily
   schedule:
-    - cron: '0 0 * * *' # This runs every night at midnight
-  workflow_dispatch: # This allows you to run it manually whenever you want
+    - cron: '0 0 * * *'
+  workflow_dispatch:
 
 jobs:
   build:
