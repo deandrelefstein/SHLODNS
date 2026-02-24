@@ -27,6 +27,22 @@
 @@||rakuten.com^
 
 ! =========================================================
+! PPV.TO PLAYER INITIALIZATION FIX
+! =========================================================
+! This tells AdGuard to stay away from the site's player scripts
+@@||ppv.to^$important,document
+@@||*.ppv.to^$important
+@@||clappr.io^$important
+@@||jwplayer.com^$important
+@@||m3u8.dev^$important
+
+! These are common hidden "CDN" domains used by sports streams
+@@||*.vtt.ovh^$important
+@@||*.m3u8.net^$important
+@@||*.akamaized.net^$important
+@@||*.cloudfront.net^$important
+
+! =========================================================
 ! SECTION 3: FORCED SAFESEARCH (Stable)
 ! =========================================================
 ||google.com^$dnsrewrite=forcesafesearch.google.com
