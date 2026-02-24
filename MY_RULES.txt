@@ -1,52 +1,36 @@
-! --- AFFILIATE & REDIRECT WHITELIST ---
+! =========================================================
+! SECTION 1: AFFILIATE & SHOPPING WHITELIST
+! (Ensures links from influencers and deal sites work)
+! =========================================================
 @@||amazon.com^
 @@||amzn.to^
 @@||mavely.app.link^
 @@||dpbolvw.net^
-
-
-! --- BLACKLIST (Block these) ---
-||annoying-gambling-site.net^
-||bing.com^
-
-! --- WHITELIST (Never block these) ---
 @@||slickdeals.net^
 @@||rakuten.com^
+@@||rstyle.me^
+@@||awin1.com^
 
-
-
-
-
-! --- FORCE SAFESEARCH (REWRITE RULES) ---
-! Google
+! =========================================================
+! SECTION 2: FORCE SAFESEARCH (REWRITES)
+! (Using CNAMEs for stability across all browsers)
+! =========================================================
 ||google.com^$dnsrewrite=forcesafesearch.google.com
 ||www.google.com^$dnsrewrite=forcesafesearch.google.com
-
-! Bing
 ||bing.com^$dnsrewrite=strict.bing.com
 ||www.bing.com^$dnsrewrite=strict.bing.com
+||duckduckgo.com^$dnsrewrite=safe.duckduckgo.com
+||search.brave.com^$dnsrewrite=safesearch.brave.com
 
-! YouTube (Strict Mode)
+! YouTube Strict Mode
 ||youtube.com^$dnsrewrite=restrict.youtube.com
 ||www.youtube.com^$dnsrewrite=restrict.youtube.com
 ||m.youtube.com^$dnsrewrite=restrict.youtube.com
+||youtube-nocookie.com^$dnsrewrite=restrict.youtube.com
 
-! DuckDuckGo
-||duckduckgo.com^$dnsrewrite=safe.duckduckgo.com
-
-! --- STABLE SAFESEARCH (REWRITES) ---
-||google.com^$dnsrewrite=forcesafesearch.google.com
-||www.google.com^$dnsrewrite=forcesafesearch.google.com
-||bing.com^$dnsrewrite=strict.bing.com
-||www.bing.com^$dnsrewrite=strict.bing.com
-||duckduckgo.com^$dnsrewrite=safe.duckduckgo.com
-
-! --- BRAVE SPECIFIC ---
-||search.brave.com^$dnsrewrite=safesearch.brave.com
-
-! --- REFINED GOOGLE/BING RULES ---
-||google.com^$dnsrewrite=216.239.38.120
-||www.google.com^$dnsrewrite=216.239.38.120
-||bing.com^$dnsrewrite=204.79.197.220
-||www.bing.com^$dnsrewrite=204.79.197.220
-
+! =========================================================
+! SECTION 3: CUSTOM BLACKLIST
+! (Put domains here you want to block manually)
+! =========================================================
+||annoying-gambling-site.net^
+! ||bing.com^  <-- I commented this out because it breaks SafeSearch logic
