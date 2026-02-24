@@ -1,6 +1,5 @@
 ! =========================================================
-! SECTION 1: AFFILIATE & SHOPPING WHITELIST
-! (Ensures links from influencers and deal sites work)
+! SECTION 1: AFFILIATES & SHOPPING (Whitelists)
 ! =========================================================
 @@||amazon.com^
 @@||amzn.to^
@@ -8,29 +7,27 @@
 @@||dpbolvw.net^
 @@||slickdeals.net^
 @@||rakuten.com^
-@@||rstyle.me^
-@@||awin1.com^
 
 ! =========================================================
-! SECTION 2: FORCE SAFESEARCH (REWRITES)
-! (Using CNAMEs for stability across all browsers)
+! SECTION 2: FORCED SAFESEARCH (Brave-Friendly CNAMEs)
 ! =========================================================
 ||google.com^$dnsrewrite=forcesafesearch.google.com
 ||www.google.com^$dnsrewrite=forcesafesearch.google.com
 ||bing.com^$dnsrewrite=strict.bing.com
 ||www.bing.com^$dnsrewrite=strict.bing.com
 ||duckduckgo.com^$dnsrewrite=safe.duckduckgo.com
-||search.brave.com^$dnsrewrite=safesearch.brave.com
+||search.brave.com^$dnsrewrite=forcesafe.search.brave.com
 
-! YouTube Strict Mode
+! =========================================================
+! SECTION 3: YOUTUBE STRICT MODE (The "No-Adult" Filter)
+! =========================================================
 ||youtube.com^$dnsrewrite=restrict.youtube.com
 ||www.youtube.com^$dnsrewrite=restrict.youtube.com
 ||m.youtube.com^$dnsrewrite=restrict.youtube.com
 ||youtube-nocookie.com^$dnsrewrite=restrict.youtube.com
+||googlevideo.com^$dnsrewrite=restrict.youtube.com
 
 ! =========================================================
-! SECTION 3: CUSTOM BLACKLIST
-! (Put domains here you want to block manually)
+! SECTION 4: CUSTOM BLACKLIST
 ! =========================================================
 ||annoying-gambling-site.net^
-! ||bing.com^  <-- I commented this out because it breaks SafeSearch logic
