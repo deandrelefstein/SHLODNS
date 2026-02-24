@@ -36,9 +36,6 @@
 
 
 
-! --- BRAVE SEARCH SAFESEARCH ---
-||search.brave.com^$dnsrewrite=safesearch.brave.com
-
 ! --- REFINED GOOGLE/BING RULES ---
 ||google.com^$dnsrewrite=216.239.38.120
 ||www.google.com^$dnsrewrite=216.239.38.120
