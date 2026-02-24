@@ -1,5 +1,5 @@
 ! =========================================================
-! SECTION 1: SHOPPING & AFFILIATES
+! SECTION 1: AFFILIATES & REDIRECTS (Whitelists)
 ! =========================================================
 @@||amazon.com^
 @@||amzn.to^
@@ -9,23 +9,27 @@
 @@||rakuten.com^
 
 ! =========================================================
-! SECTION 2: FORCED SAFESEARCH (STABLE VIP METHOD)
+! SECTION 2: FORCED SAFESEARCH (Stable CNAME Method)
 ! =========================================================
-||google.com^$dnsrewrite=216.239.38.120
-||www.google.com^$dnsrewrite=216.239.38.120
-||bing.com^$dnsrewrite=204.79.197.220
-||www.bing.com^$dnsrewrite=204.79.197.220
+! These work for Safari/Chrome/Firefox
+||google.com^$dnsrewrite=forcesafesearch.google.com
+||www.google.com^$dnsrewrite=forcesafesearch.google.com
+||bing.com^$dnsrewrite=strict.bing.com
+||www.bing.com^$dnsrewrite=strict.bing.com
+||duckduckgo.com^$dnsrewrite=safe.duckduckgo.com
 
-! YouTube Strict Mode
-||youtube.com^$dnsrewrite=216.239.38.120
-||www.youtube.com^$dnsrewrite=216.239.38.120
-||m.youtube.com^$dnsrewrite=216.239.38.120
+! YouTube Strict Mode 
+||youtube.com^$dnsrewrite=restrict.youtube.com
+||www.youtube.com^$dnsrewrite=restrict.youtube.com
+||m.youtube.com^$dnsrewrite=restrict.youtube.com
+||youtube-nocookie.com^$dnsrewrite=restrict.youtube.com
 
 ! =========================================================
-! SECTION 3: HIDE YOUTUBE SHORTS (COSMETIC)
+! SECTION 3: HIDE YOUTUBE SHORTS (Safari Cosmetic)
 ! =========================================================
 youtube.com##ytd-rich-section-renderer:has(ytd-rich-item-renderer a[href^="/shorts"])
 youtube.com##ytd-reel-shelf-renderer
+m.youtube.com##ytm-reel-shelf-renderer
 
 ! =========================================================
 ! SECTION 4: CUSTOM BLACKLIST
