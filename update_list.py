@@ -18,30 +18,30 @@ def main():
     for url in urls:
         print(f"Fetching {url}...")
         try:
-            response = requests.get(url)
+            response = requests.get(url, timeout=10)
             if response.status_code == 200:
                 lines = response.text.splitlines()
                 for line in lines:
+                    # Keep valid rules, skip comments/empty lines
                     if line and not line.startswith(("!", "#", "[Adblock")):
-                        combined_rules.add(line)
+                        combined_rules.add(line.strip())
         except Exception as e:
             print(f"Failed to fetch {url}: {e}")
 
-    # Convert to a sorted list for processing
+    # Convert to a sorted list
     final_rules = sorted(list(combined_rules))
 
-    # --- 1. GENERATE STRICT LIST (Includes YouTube Restriction) ---
+    # 1. GENERATE STRICT LIST (Full content + YouTube Restricted)
     with open("master_strict.txt", "w") as f:
-        f.write(f"! Title: SHLOMO-STRICT\n")
+        f.write("! Title: SHLOMO-STRICT\n")
         f.write(f"! Updated: {timestamp}\n")
         f.write("! Includes: Ads, Malware, Gambling, SafeSearch, YouTube Restricted\n\n")
         for rule in final_rules:
             f.write(f"{rule}\n")
 
-    # --- 2. GENERATE LITE LIST (Removes YouTube Restriction) ---
-    # We filter out any line containing 'restrict.youtube.com'
+    # 2. GENERATE LITE LIST (Removes YouTube Restriction)
     with open("master_lite.txt", "w") as f:
-        f.write(f"! Title: SHLOMO-LITE\n")
+        f.write("! Title: SHLOMO-LITE\n")
         f.write(f"! Updated: {timestamp}\n")
         f.write("! Includes: Ads, Malware, Gambling, SafeSearch (No YouTube Restriction)\n\n")
         for rule in final_rules:
