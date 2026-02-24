@@ -1,10 +1,22 @@
+
+
+
 ! =========================================================
-! SECTION 1: EMERGENCY WHITELIST (Sports Fix)
+! SECTION 1: PPV.TO NUCLEAR WHITELIST
 ! =========================================================
-! This tells AdGuard "Don't touch anything on ppv.to"
+! These rules tell AdGuard to ignore Google rewrites ONLY when you are on ppv.to
+@@||google.com^$domain=ppv.to
+@@||www.google.com^$domain=ppv.to
+@@||googlevideo.com^$domain=ppv.to
+@@||gstatic.com^$domain=ppv.to
+
+! General bypass for the site itself and its players
 @@||ppv.to^$important
+@@||*.ppv.to^$important
 @@||clappr.io^$important
 @@||jwplayer.com^$important
+@@||m3u8.dev^$important
+@@||hls.js^$important
 
 ! SECTION 2: SHOPPING & AFFILIATES
 @@||amazon.com^
