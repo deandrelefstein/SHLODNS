@@ -1,4 +1,7 @@
-
+! --- AMAZON MINERVA/AWS PLAYER FIX ---
+@@||minerva.devices.a2z.com^$important
+@@||*.minerva.devices.a2z.com^$important
+@@||a2z.com^$important,domain=ppv.to
 
 
 ! =========================================================
