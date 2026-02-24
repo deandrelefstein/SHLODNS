@@ -7,7 +7,7 @@
 
 ! --- BLACKLIST (Block these) ---
 ||annoying-gambling-site.net^
-
+||bing.com^
 
 ! --- WHITELIST (Never block these) ---
 @@||slickdeals.net^
