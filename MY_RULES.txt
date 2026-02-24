@@ -1,5 +1,13 @@
+! --- AFFILIATE & REDIRECT WHITELIST ---
+@@||amazon.com^
+@@||amzn.to^
+@@||mavely.app.link^
+@@||dpbolvw.net^
+
+
 ! --- BLACKLIST (Block these) ---
 ||annoying-gambling-site.net^
+
 
 ! --- WHITELIST (Never block these) ---
 @@||slickdeals.net^
