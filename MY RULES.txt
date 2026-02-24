@@ -1,0 +1,6 @@
+! --- BLACKLIST (Block these) ---
+||annoying-gambling-site.net^
+
+! --- WHITELIST (Never block these) ---
+@@||slickdeals.net^
+@@||rakuten.com^
