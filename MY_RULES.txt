@@ -12,3 +12,24 @@
 ! --- WHITELIST (Never block these) ---
 @@||slickdeals.net^
 @@||rakuten.com^
+
+
+
+
+
+! --- FORCE SAFESEARCH (REWRITE RULES) ---
+! Google
+||google.com^$dnsrewrite=forcesafesearch.google.com
+||www.google.com^$dnsrewrite=forcesafesearch.google.com
+
+! Bing
+||bing.com^$dnsrewrite=strict.bing.com
+||www.bing.com^$dnsrewrite=strict.bing.com
+
+! YouTube (Strict Mode)
+||youtube.com^$dnsrewrite=restrict.youtube.com
+||www.youtube.com^$dnsrewrite=restrict.youtube.com
+||m.youtube.com^$dnsrewrite=restrict.youtube.com
+
+! DuckDuckGo
+||duckduckgo.com^$dnsrewrite=safe.duckduckgo.com
