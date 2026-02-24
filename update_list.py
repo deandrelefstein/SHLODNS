@@ -1,8 +1,9 @@
 import requests
+import datetime
 
-# Add your own Raw GitHub link at the TOP of this list
+# Your sources
 urls = [
-    "https://raw.githubusercontent.com/deandrelefstein/FAM-DNS-1/main/MY_RULES.txt", # YOUR FILE
+    "https://raw.githubusercontent.com/deandrelefstein/FAM-DNS-1/main/MY_RULES.txt", 
     "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/multi.txt",
     "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/nsfw.txt",
     "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/gamble.txt",
@@ -11,28 +12,43 @@ urls = [
 ]
 
 def main():
-    combined_rules = set() # Using a 'set' automatically removes duplicates
+    combined_rules = set() 
+    timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     
     for url in urls:
         print(f"Fetching {url}...")
         try:
             response = requests.get(url)
             if response.status_code == 200:
-                # Split by line and add to our set
                 lines = response.text.splitlines()
                 for line in lines:
-                    # Ignore comments and empty lines to keep it clean
                     if line and not line.startswith(("!", "#", "[Adblock")):
                         combined_rules.add(line)
         except Exception as e:
             print(f"Failed to fetch {url}: {e}")
 
-    # Save everything to your master file
-    with open("master.txt", "w") as f:
-        f.write("! --- AUTOMATED MASTER LIST ---\n")
-        f.write("! Updated daily via GitHub Actions\n\n")
-        for rule in sorted(combined_rules):
+    # Convert to a sorted list for processing
+    final_rules = sorted(list(combined_rules))
+
+    # --- 1. GENERATE STRICT LIST (Includes YouTube Restriction) ---
+    with open("master_strict.txt", "w") as f:
+        f.write(f"! Title: SHLOMO-STRICT\n")
+        f.write(f"! Updated: {timestamp}\n")
+        f.write("! Includes: Ads, Malware, Gambling, SafeSearch, YouTube Restricted\n\n")
+        for rule in final_rules:
             f.write(f"{rule}\n")
+
+    # --- 2. GENERATE LITE LIST (Removes YouTube Restriction) ---
+    # We filter out any line containing 'restrict.youtube.com'
+    with open("master_lite.txt", "w") as f:
+        f.write(f"! Title: SHLOMO-LITE\n")
+        f.write(f"! Updated: {timestamp}\n")
+        f.write("! Includes: Ads, Malware, Gambling, SafeSearch (No YouTube Restriction)\n\n")
+        for rule in final_rules:
+            if "restrict.youtube.com" not in rule:
+                f.write(f"{rule}\n")
+
+    print(f"Update Complete at {timestamp}")
 
 if __name__ == "__main__":
     main()
