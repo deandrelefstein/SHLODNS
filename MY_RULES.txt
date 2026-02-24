@@ -42,3 +42,18 @@ m.youtube.com##a[href^="/shorts"]
 ! SECTION 5: CUSTOM BLACKLIST
 ! =========================================================
 ||annoying-gambling-site.net^
+
+
+! --- PPV.TO EMERGENCY PLAYER FIX ---
+@@||ppv.to^$important
+@@||cdn.ppv.to^$important
+@@||stream.ppv.to^$important
+
+! Common Piracy Stream Players (Must be unblocked for ppv.to)
+@@||clappr.io^$important
+@@||jwplayer.com^$important
+@@||m3u8.dev^$important
+@@||hls.js^$important
+
+! --- RE-ALLOW GOOGLE SERVICES (Just in case) ---
+@@||googlevideo.com^
