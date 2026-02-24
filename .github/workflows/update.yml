@@ -27,13 +27,10 @@ jobs:
       - name: Run update script
         run: python update_list.py
 
-- name: Commit and push changes
+      - name: Commit and push changes
         run: |
           git config --global user.name "GitHub Action"
           git config --global user.email "action@github.com"
-          # This tells GitHub to track your two new lists
-          git add master_strict.txt master_lite.txt
-          # We'll keep master.txt for now so nothing breaks, but add the new ones
-          git add master.txt || true 
+          git add master_strict.txt master_lite.txt master.txt
           git commit -m "Auto-update Strict and Lite blocklists" || exit 0
           git push
