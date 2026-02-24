@@ -1,6 +1,12 @@
 ! =========================================================
-! SECTION 1: AFFILIATES & REDIRECTS (Whitelists)
+! SECTION 1: EMERGENCY WHITELIST (Sports Fix)
 ! =========================================================
+! This tells AdGuard "Don't touch anything on ppv.to"
+@@||ppv.to^$important
+@@||clappr.io^$important
+@@||jwplayer.com^$important
+
+! SECTION 2: SHOPPING & AFFILIATES
 @@||amazon.com^
 @@||amzn.to^
 @@||mavely.app.link^
@@ -9,29 +15,30 @@
 @@||rakuten.com^
 
 ! =========================================================
-! SECTION 2: FORCED SAFESEARCH (Stable CNAME Method)
+! SECTION 3: FORCED SAFESEARCH (Stable)
 ! =========================================================
-! These work for Safari/Chrome/Firefox
 ||google.com^$dnsrewrite=forcesafesearch.google.com
 ||www.google.com^$dnsrewrite=forcesafesearch.google.com
 ||bing.com^$dnsrewrite=strict.bing.com
 ||www.bing.com^$dnsrewrite=strict.bing.com
-||duckduckgo.com^$dnsrewrite=safe.duckduckgo.com
 
-! YouTube Strict Mode 
+! YouTube Strict Mode
 ||youtube.com^$dnsrewrite=restrict.youtube.com
 ||www.youtube.com^$dnsrewrite=restrict.youtube.com
-||m.youtube.com^$dnsrewrite=restrict.youtube.com
-||youtube-nocookie.com^$dnsrewrite=restrict.youtube.com
 
 ! =========================================================
-! SECTION 3: HIDE YOUTUBE SHORTS (Safari Cosmetic)
+! SECTION 4: YOUTUBE SHORTS REMOVER (2026 Safari Spec)
 ! =========================================================
+! This targets the containers and the actual buttons
 youtube.com##ytd-rich-section-renderer:has(ytd-rich-item-renderer a[href^="/shorts"])
 youtube.com##ytd-reel-shelf-renderer
+youtube.com##a[href^="/shorts"]
+youtube.com##[is-shorts]
 m.youtube.com##ytm-reel-shelf-renderer
+m.youtube.com##.pivot-shorts
+m.youtube.com##a[href^="/shorts"]
 
 ! =========================================================
-! SECTION 4: CUSTOM BLACKLIST
+! SECTION 5: CUSTOM BLACKLIST
 ! =========================================================
 ||annoying-gambling-site.net^
