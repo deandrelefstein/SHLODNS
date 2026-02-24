@@ -3,8 +3,6 @@ import requests
 # Add your own Raw GitHub link at the TOP of this list
 urls = [
     "https://raw.githubusercontent.com/deandrelefstein/FAM-DNS-1/main/MY_RULES.txt", # YOUR FILE
-    "https://adguardteam.github.io/AdGuardSDNSFilter/Filters/filter.txt",
-    "https://big.oisd.nl/",
     "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/multi.txt",
     "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/nsfw.txt",
     "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/gamble.txt",
