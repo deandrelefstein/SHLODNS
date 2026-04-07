@@ -1,5 +1,5 @@
 ! Title: SHLOMO-STRICT
-! Updated: 2026-04-07 02:11:00
+! Updated: 2026-04-07 07:43:49
 ! Includes: Ads, Malware, Gambling, SafeSearch, YouTube Restricted
 
 @@||*.akamaihd.net^$important
