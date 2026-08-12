@@ -1,5 +1,5 @@
 ! Title: SHLOMO-LITE
-! Updated: 2026-08-11 01:26:17
+! Updated: 2026-08-12 01:43:40
 ! Includes: Ads, Malware, Gambling, SafeSearch (No YouTube Restriction)
 
 @@||*.akamaihd.net^$important
